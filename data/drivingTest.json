@@ -1,0 +1,186 @@
+{
+	"record": [
+		{
+			"location": "강남",
+			"examinations": 79597,
+			"funcionalTest": 49607,
+			"drivingTest": 37245,
+			"totalCandidate": 166449
+		},
+		{
+			"location": "도봉",
+			"examinations": 59935,
+			"funcionalTest": 38211,
+			"drivingTest": 23597,
+			"totalCandidate": 121743
+		},
+		{
+			"location": "강서",
+			"examinations": 75360,
+			"funcionalTest": 28600,
+			"drivingTest": 27897,
+			"totalCandidate": 131857
+		},
+		{
+			"location": "서부",
+			"examinations": 55308,
+			"funcionalTest": 31309,
+			"drivingTest": 21674,
+			"totalCandidate": 108291
+		},
+		{
+			"location": "부산북부",
+			"examinations": 43788,
+			"funcionalTest": 25702,
+			"drivingTest": 22623,
+			"totalCandidate": 92113
+		},
+		{
+			"location": "부산남부",
+			"examinations": 45977,
+			"funcionalTest": 42429,
+			"drivingTest": 21399,
+			"totalCandidate": 109805
+		},
+		{
+			"location": "대구",
+			"examinations": 74067,
+			"funcionalTest": 28884,
+			"drivingTest": 21807,
+			"totalCandidate": 124758
+		},
+		{
+			"location": "인천",
+			"examinations": 46565,
+			"funcionalTest": 21948,
+			"drivingTest": 16807,
+			"totalCandidate": 85320
+		},
+		{
+			"location": "울산",
+			"examinations": 27184,
+			"funcionalTest": 14136,
+			"drivingTest": 11178,
+			"totalCandidate": 52498
+		},
+		{
+			"location": "용인",
+			"examinations": 77130,
+			"funcionalTest": 33636,
+			"drivingTest": 35584,
+			"totalCandidate": 146350
+		},
+		{
+			"location": "안산",
+			"examinations": 53465,
+			"funcionalTest": 27214,
+			"drivingTest": 23141,
+			"totalCandidate": 103820
+		},
+		{
+			"location": "의정부",
+			"examinations": 28402,
+			"funcionalTest": 9782,
+			"drivingTest": 12496,
+			"totalCandidate": 50680
+		},
+		{
+			"location": "춘천",
+			"examinations": 9678,
+			"funcionalTest": 7594,
+			"drivingTest": 6532,
+			"totalCandidate": 23804
+		},
+		{
+			"location": "강릉",
+			"examinations": 9413,
+			"funcionalTest": 6193,
+			"drivingTest": 3317,
+			"totalCandidate": 18923
+		},
+		{
+			"location": "원주",
+			"examinations": 18025,
+			"funcionalTest": 13411,
+			"drivingTest": 10732,
+			"totalCandidate": 42168
+		},
+		{
+			"location": "태백",
+			"examinations": 3695,
+			"funcionalTest": 2855,
+			"drivingTest": 2629,
+			"totalCandidate": 9179
+		},
+		{
+			"location": "청주",
+			"examinations": 20956,
+			"funcionalTest": 9752,
+			"drivingTest": 7866,
+			"totalCandidate": 38574
+		},
+		{
+			"location": "충주",
+			"examinations": 10407,
+			"funcionalTest": 5644,
+			"drivingTest": 3943,
+			"totalCandidate": 19994
+		},
+		{
+			"location": "대전",
+			"examinations": 40371,
+			"funcionalTest": 21740,
+			"drivingTest": 15062,
+			"totalCandidate": 77173
+		},
+		{
+			"location": "예산",
+			"examinations": 32110,
+			"funcionalTest": 13965,
+			"drivingTest": 11315,
+			"totalCandidate": 57390
+		},
+		{
+			"location": "전북",
+			"examinations": 39735,
+			"funcionalTest": 16586,
+			"drivingTest": 10625,
+			"totalCandidate": 66946
+		},
+		{
+			"location": "전남",
+			"examinations": 69977,
+			"funcionalTest": 19021,
+			"drivingTest": 15422,
+			"totalCandidate": 104420
+		},
+		{
+			"location": "문경",
+			"examinations": 14798,
+			"funcionalTest": 10938,
+			"drivingTest": 7515,
+			"totalCandidate": 33251
+		},
+		{
+			"location": "포항",
+			"examinations": 18940,
+			"funcionalTest": 9768,
+			"drivingTest": 6460,
+			"totalCandidate": 35168
+		},
+		{
+			"location": "마산",
+			"examinations": 45117,
+			"funcionalTest": 15871,
+			"drivingTest": 16235,
+			"totalCandidate": 77223
+		},
+		{
+			"location": "제주",
+			"examinations": 15016,
+			"funcionalTest": 13237,
+			"drivingTest": 6628,
+			"totalCandidate": 34881
+		}
+	]
+}
