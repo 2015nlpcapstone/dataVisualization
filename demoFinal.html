@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+	div.chart{
+		font-family:sans-serif;
+		font-size:0.7em;
+	}
+	div.bar {
+		background-color:DarkRed;
+		color:white;
+		height:3em;
+		line-height:3em;
+		padding-right:1em;
+		margin-bottom:2px;
+		text-align:right;
+		margin-left:22em;
+	}
+	div.label {
+		height:3em;
+		line-height:3em;
+		padding-right:1em;
+		margin-bottom:2px;
+		float:left;
+		width:20em;
+		text-align:right;
+	}
+
+	path {
+		fill: #81BEF7;
+		stroke: #fff;
+		stroke-width: 2.5px;
+		stroke-linejoin: round;
+	}
+
+</style>
+
+<head>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script>
+	
+	document.title = '운전면허응시현황';
+
+	function draw(data) { // yoon // stick graph
+		"use strict";
+
+				// yoon // json object sorting example
+				data.record.sort(function decSort(a,b) {
+					console.log(a.totalCandidate)
+					if(a.totalCandidate == b.totalCandidate) return 0;
+					return a.totalCandidate > b.totalCandidate ? -1 : 1;
+				});
+
+				console.log(data.record)
+				
+				d3.select("body")
+				.append("div")
+				.attr("class", "chart")
+				.selectAll("div.bar")
+				.data(data.record)
+				.enter()
+				.append("div")
+				.attr("class","line")
+
+				d3.selectAll("div.line")
+				.append("div")
+				.attr("class","label")
+				.text(function(d){return d.location})
+				
+				d3.selectAll("div.line")
+				.append("div")
+				.attr("class","bar")
+				.style("width", function(d){return d.totalCandidate/500 + "px"})
+				.text(function(d){return Math.round(d.totalCandidate)});
+
+
+
+			}
+		function draw2(data) { // yoon // moving pie graph
+
+			console.log(data)
+
+			// yoon // json object to array example
+			var key, count = 0;
+			var totalCandidate = new Array();
+
+			for(key in data.record) {
+				if(data.record.hasOwnProperty(key)) {
+					totalCandidate.push(data.record[key].totalCandidate);
+					count++;
+				}
+			}
+
+			console.log(count)     
+			console.log("totalCandidate : "+totalCandidate)
+
+			var width = 960, height = 500;
+			var outerRadius = height / 2 - 30,
+			innerRadius = outerRadius / 3,
+			cornerRadius = 10;
+
+			var pie = d3.layout.pie();
+
+			var arc = d3.svg.arc()
+			.innerRadius(innerRadius)
+			.outerRadius(outerRadius);
+
+			var svg = d3.select("body").append("svg")
+			.attr("width", width)
+			.attr("height", height)
+			.append("g")
+			.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+			var path = svg.selectAll("path")
+			.data(totalCandidate)
+			.enter().append("path");
+
+			var ease = d3.ease("cubic-in-out"),
+			duration = 7500;
+
+
+			console.log(data.record[0])
+			console.log("bgn d3.timer")
+
+
+			d3.timer(function(elapsed) { // yoon // empty -> show
+				elapsed = elapsed+4500
+				var t = ease(1 - Math.abs((duration % elapsed ) / duration - .5) * 2);
+				if (elapsed <= duration) {
+					console.log(elapsed + "," + duration)
+					path
+					.data(pie.padAngle(t * 2 * Math.PI / totalCandidate.length)(totalCandidate))
+					.attr("d", arc);
+				}
+				//console.log(elapsed)
+			});
+		}
+	</script></head>
+
+	<body>
+
+	<div style="text-align : center"> 2014년도 2분기 운전면허시험 응시현황 가시화 데모<br /><a href="https://www.data.go.kr/subMain.jsp#/L2NvbW0vY29tbW9uU2VhcmNoL2RhdGFzZXREZXRhaWwkQF4wMTJtMTMkQF5wdWJsaWNEYXRhUGs9MTEwMDExODYkQF5icm1DZD1PQzAwMDMkQF5vcmdJbmRleD1EQVRBU0VU" target="_blank">자료출처 : www.data.go.kr</a></div>
+		<script>
+			d3.json('data/drivingTest.json', draw2);
+			d3.json('data/drivingTest.json', draw);
+		</script>
+		
+	</body>
