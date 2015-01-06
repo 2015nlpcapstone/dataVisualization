@@ -45,12 +45,12 @@
 
 				// yoon // json object sorting example
 				data.record.sort(function decSort(a,b) {
-					//console.log(a.totalCandidate)
+					console.log(a.totalCandidate)
 					if(a.totalCandidate == b.totalCandidate) return 0;
 					return a.totalCandidate > b.totalCandidate ? -1 : 1;
 				});
 
-				//console.log(data.record)
+				console.log(data.record)
 				
 				d3.select("body")
 				.append("div")
@@ -77,7 +77,7 @@
 			}
 		function draw2(data) { // yoon // moving pie graph
 
-			//console.log(data)
+			console.log(data)
 
 			// yoon // json object to array example
 			var key, count = 0;
@@ -90,8 +90,8 @@
 				}
 			}
 
-			//console.log(count)     
-			//console.log("totalCandidate : "+totalCandidate)
+			console.log(count)     
+			console.log("totalCandidate : "+totalCandidate)
 
 			var width = 960, height = 500;
 			var outerRadius = height / 2 - 30,
@@ -110,60 +110,28 @@
 			.append("g")
 			.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-			// yh // add bgn ...
-			var arcs = svg.selectAll("g.arc")
-              .data(pie(totalCandidate))
-              .enter()
-              .append("g")
-              .attr("class", "arc")
-              .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
-
-            arcs.append("path").attr("d", arc);
-            // yh // add ... end
-
-
-			//var path = svg.selectAll("path")
-			//.data(totalCandidate)
-			//.enter().append("path");
+			var path = svg.selectAll("path")
+			.data(totalCandidate)
+			.enter().append("path");
 
 			var ease = d3.ease("cubic-in-out"),
 			duration = 7500;
 
 
-			//console.log(data.record[0])
+			console.log(data.record[0])
 			console.log("bgn d3.timer")
 
 
 			d3.timer(function(elapsed) { // yoon // empty -> show
 				elapsed = elapsed+4500
 				var t = ease(1 - Math.abs((duration % elapsed ) / duration - .5) * 2);
-				//if (elapsed <= duration) {
-				//	console.log(elapsed + "," + duration)
-				//	path
-				//	.data(pie.padAngle(t * 2 * Math.PI / totalCandidate.length)(totalCandidate))
-				//	.attr("d", arc);
-				//}
+				if (elapsed <= duration) {
+					console.log(elapsed + "," + duration)
+					path
+					.data(pie.padAngle(t * 2 * Math.PI / totalCandidate.length)(totalCandidate))
+					.attr("d", arc);
+				}
 				//console.log(elapsed)
-				if(t < 0.01){
-					arcs.append("text")
-					.attr("transform", function(d){
-						return "translate(" + arc.centroid(d) + ")";
-					})
-					.attr("text-anchor", "middle")
-					.text(function(d){
-						return d.value;
-					});
-				}
-				else{
-					arcs.selectAll("text")
-					.text(function(d){
-						return "";
-					});
-				}
-				arcs.select("path")
-				.data(pie.padAngle(t * 2 * Math.PI / totalCandidate.length)(totalCandidate))
-				.attr("d", arc);
-
 			});
 		}
 	</script></head>
